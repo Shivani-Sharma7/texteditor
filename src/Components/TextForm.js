@@ -12,9 +12,15 @@ export default function TextForm(props) {
     setText(newText);
   }
 
+
   const handleLowClick = () => {
     // console.log("Uppercase was clicked!!!" + text)
     let newText=text.toLowerCase();
+    setText(newText);
+  }
+
+  const handleClearClick = () => {
+    let newText='';
     setText(newText);
   }
 
@@ -23,6 +29,15 @@ export default function TextForm(props) {
     console.log("On change!!!")
     //event.target.value returns the value entered by the user when entering in the textbox
     setText(event.target.value);
+  }
+
+  const handleExtraSpaces = (event) => {
+    let newText=text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
+
+  const handleCopyClick = (event) => {
+    console.log(event);
   }
 
   //initialization of state variables where text is the variable & setText is the function which will update the value of text var.
@@ -42,7 +57,10 @@ export default function TextForm(props) {
           <textarea className="form-control" id="myBox" rows="8" value={text} onChange={handleOnChange}/>
       </div>
       <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-      <button className="btn btn-primary mx-3" onClick={handleLowClick}>Convert to Lowercase</button>
+      <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to Lowercase</button>
+      <button className="btn btn-primary mx-2" onClick={handleClearClick}>Clear All</button>
+      <button className="btn btn-primary mx-2" onClick={handleCopyClick}>Copy Text</button>
+      <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
       </div>
       <div className='container my-3'>
         <h2>Your Text Summary</h2>
