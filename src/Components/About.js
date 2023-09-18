@@ -10,7 +10,7 @@ export default function About() {
     const [enableButton,setEnableButton]=useState('Enable Dark Mode');
     
     const handleOnClick = () => {
-        if (myStyle.backgroundColor == 'white'){ 
+        if (myStyle.backgroundColor === 'white'){ 
             setTheme({
                 color:'white',
                 backgroundColor: 'black'
